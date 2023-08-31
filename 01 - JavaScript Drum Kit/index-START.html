@@ -68,7 +68,14 @@
         key.classList.add("playing");
         audio.play();
       }
+      function removePlayingClass(event) {
+        event.target.classList.remove("playing");
+      }
       addEventListener("keydown", playSound);
+      const keys = Array.from(document.querySelectorAll(".key"));
+      keys.forEach((key) =>
+        key.addEventListener("transitionend", removePlayingClass)
+      );
     </script>
   </body>
 </html>
